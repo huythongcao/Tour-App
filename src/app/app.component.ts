@@ -13,5 +13,5 @@ export class AppComponent {
     setInterval(() => {
       this.count++;
     }, 1000);
-  }
+  }   
 }
