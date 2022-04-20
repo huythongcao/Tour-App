@@ -1,0 +1,103 @@
+<!-- <p>{{ str }}</p>
+
+<p>{{ obj.value }}</p>
+
+<div [innerHTML]="tpl"></div>
+<div>{{ tpl }}</div>
+
+<div [id]="id">AAAAA</div>
+
+<button (click)="submitHandler(id)">Click me</button>
+
+<input
+  type="text"
+  #name
+  (keyup.enter)="onKeyUp(name)"
+  placeholder="Enter your name ..."
+/>
+
+<input
+  type="text"
+  placeholder="Enter your email ..."
+  [(ngModel)]="email"
+  (keyup)="onEmailChange()"
+/> -->
+
+<!-- Structural Directive -->
+<!-- <div class="card" style="width: 18rem" *ngFor = 'let user of users; let i = index;'>
+  <div class="card-body">
+    <h5 class="card-title"> {{i + 1}}. {{user.name}} </h5>
+    <h6 class="card-subtitle mb-2 text-muted"> {{user.email}} </h6>
+    <p class="card-text"> {{user.website}} </p>
+  </div>
+</div> -->
+
+<!-- <div>
+  <p [class.completed]="todo.completed">
+    {{ todo.title }}
+    <i *ngIf='todo.completed' class="fas fa-check text-success"></i>
+  </p>
+  <p
+    [ngClass]="{ completed: todo.completed, 'text-completed': todo.completed }"
+    [ngStyle] = "{'font-weight': todo.completed ? 'bold' : ''}"
+  >
+    {{ todo.title }}
+    <i *ngIf="todo.completed" class="fas fa-check text-success"></i>
+  </p>
+</div> -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="w-50">
+      <form>
+        <div class="form-group">
+          <label> Tour name </label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="form-group">
+          <label> Image URL </label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div class="form-group">
+          <label> Price </label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div class="form-group">
+          <label> Info </label>
+          <textarea type="text" class="form-check-input" id="exampleCheck1"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="mt-4">
+      <div class="card mb-3" *ngFor="let tour of tours">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img [src]="tour.image" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"> {{tour.name}} </h5>
+              <p class="card-text"> {{tour.info}} </p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
