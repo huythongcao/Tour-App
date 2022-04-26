@@ -1,0 +1,27 @@
+<div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{ tour.image }}" alt="..." />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ tour.name }}</h5>
+        <p class="text-warning">{{ tour.price }}</p>
+        <p class="card-text">
+          {{ tour.info }}
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
+        <div class="text-right">
+          <i class="fas fa-trash text-danger mr-4" (click)="onDeleteClick()"></i>
+          <i
+            class="fas fa-heart text-warning"
+            [class.text-danger] = "tour.favourite"
+            (click)="onFavouriteClick()"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

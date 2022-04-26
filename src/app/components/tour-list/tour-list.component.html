@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="w-80">
+    <div>
+      <div class="form-group">
+        <label>Tour name</label>
+        <input type="text" [(ngModel)]="newTour.name" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Image URL</label>
+        <input type="text" [(ngModel)]="newTour.image" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Price</label>
+        <input type="number" [(ngModel)]="newTour.price" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Infos</label>
+        <textarea
+          class="form-control"
+          name=""
+          id=""
+          [(ngModel)]="newTour.info"
+          cols="30"
+          rows="5"
+        ></textarea>
+      </div>
+      <app-button
+        name="Submit"
+        colorStyle="primary"
+        type="submit"
+        (onClick)="addNewTour($event)"
+      ></app-button>
+      <app-button
+        name="Submit"
+        colorStyle="success"
+        type="submit"
+        disabled="true"
+      ></app-button>
+    </div>
+    <div class="mt-4">
+      <app-tour-card
+        *ngFor="let tour of tours"
+        [data]="tour"
+        (delete)="onDelete(tour)"
+        (favouriteChange)="onFavouriteChange(tour)"
+      ></app-tour-card>
+    </div>
+  </div>
+</div>
