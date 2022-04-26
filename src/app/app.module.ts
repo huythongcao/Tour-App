@@ -11,6 +11,7 @@ import { ButtonComponent } from './components/shared/button/button.component';
 import { TourService } from './services/tour.service';
 import { MyCustomModalComponent } from './components/my-custom-modal/my-custom-modal.component';
 import { TourCardComponent } from './components/tour-card/tour-card.component';
+import { SummaryPipe } from './pipes/summary.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TourCardComponent } from './components/tour-card/tour-card.component';
     TourListComponent,
     ButtonComponent,
     MyCustomModalComponent,
-    TourCardComponent
+    TourCardComponent,
+    SummaryPipe
   ],
   imports: [
     BrowserModule, FormsModule

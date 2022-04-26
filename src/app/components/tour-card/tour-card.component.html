@@ -6,19 +6,28 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{ tour.name }}</h5>
-        <p class="text-warning">{{ tour.price | currency: "USD"}}</p>
+        <p class="text-warning">{{ tour.price | currency: "USD" }}</p>
         <p class="card-text">
-          {{ tour.info }}
+          {{ tour.info | summary: limit }}
+          <button 
+            class="btn btn-primary btn-sm" 
+            (click)="displayText()"
+          >
+            {{ limit !== "all" ? "See more" : "See less" }}
+          </button>
         </p>
-        <p class="text-info"> {{tour.createdAt | date: "dd/MM/yyyy"}} </p>
+        <p class="text-info">{{ tour.createdAt | date: "dd/MM/yyyy" }}</p>
         <p class="card-text">
           <small class="text-muted"> Last updated at 3 minutes ago </small>
         </p>
         <div class="text-right">
-          <i class="fas fa-trash text-danger mr-4" (click)="onDeleteClick()"></i>
+          <i
+            class="fas fa-trash text-danger mr-4"
+            (click)="onDeleteClick()"
+          ></i>
           <i
             class="fas fa-heart text-warning"
-            [class.text-danger] = "tour.favourite"
+            [class.text-danger]="tour.favourite"
             (click)="onFavouriteClick()"
           ></i>
         </div>
