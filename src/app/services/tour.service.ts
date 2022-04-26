@@ -7,6 +7,7 @@ export interface Tour {
   image: string;
   price: number;
   favourite: boolean;
+  createdAt: number
 }
 
 @Injectable({
@@ -26,6 +27,7 @@ export class TourService {
           'https://dl.airtable.com/.attachments/a0cd0702c443f31526267f38ea5314a1/2447eb7a/paris.jpg',
         price: 1995,
         favourite: true,
+        createdAt: 1650934317380
       },
       {
         id: 'recIwxrvU9HfJR3B4',
@@ -35,6 +37,7 @@ export class TourService {
           'https://dl.airtable.com/.attachments/6c24084000a3777064c5200a8c2ae931/04081a3e/ireland.jpeg',
         price: 3895,
         favourite: false,
+        createdAt: 1650934317380
       },
       {
         id: 'recJLWcHScdUtI3ny',
@@ -44,7 +47,7 @@ export class TourService {
           'https://dl.airtable.com/.attachments/27f6cbfe631e303f98b97e9dafacf25b/6bbe2a07/vienna.jpeg',
         price: 2695,
         favourite: false,
-
+        createdAt: 1650934317380
       },
       {
         id: 'recK2AOoVhIHPLUwn',
@@ -54,7 +57,7 @@ export class TourService {
           'https://dl.airtable.com/.attachments/3efa7aa402d49c12b8769c581a96af42/d5b641e3/italy.jpeg',
         price: 2095,
         favourite: true,
-
+        createdAt: 1650934317380
       },
       {
         id: 'receAEzz86KzW2gvH',
@@ -64,6 +67,8 @@ export class TourService {
           'https://dl.airtable.com/.attachments/3feee7a93af0f4f809312132090c9a80/58e3e8ec/poland.jpeg',
         price: 2595,
         favourite: false,
+        createdAt: 1650934317380
+
       },
     ];
   }

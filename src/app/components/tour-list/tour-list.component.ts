@@ -14,7 +14,8 @@ export class TourListComponent implements OnInit {
     info: '',
     image: '',
     price: 0,
-    favourite: undefined
+    favourite: false,
+    createdAt: null
  }
 
   constructor(private tourService: TourService) {
