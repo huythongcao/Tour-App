@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -13,7 +14,6 @@ import { MyCustomModalComponent } from './components/my-custom-modal/my-custom-m
 import { TourCardComponent } from './components/tour-card/tour-card.component';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { InputFormatDirective } from './directives/input-format.directive';
-import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
