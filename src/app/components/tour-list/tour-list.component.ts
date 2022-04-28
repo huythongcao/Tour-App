@@ -19,13 +19,15 @@ export class TourListComponent implements OnInit {
  }
 
   constructor(private tourService: TourService) {
-    this.tours = tourService.getAllTour();
+   
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.tours = this.tourService.getAllTour();
+  }
 
   addNewTour(data) {
-    console.log(data);
+    console.log(this.newTour);
     if (this.newTour.name.trim() === '') return;
     this.tours.unshift(this.newTour)
   }

@@ -7,7 +7,8 @@ export interface Tour {
   image: string;
   price: number;
   favourite: boolean;
-  createdAt: number
+  createdAt: number,
+  discountCode?: string
 }
 
 @Injectable({

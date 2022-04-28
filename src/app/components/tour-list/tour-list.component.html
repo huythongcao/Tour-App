@@ -14,7 +14,16 @@
         <input type="number" [(ngModel)]="newTour.price" class="form-control" />
       </div>
       <div class="form-group">
-        <label>Infos</label>
+        <label>Discount code</label>
+        <input
+          [appInputFormat] = "'upperCase'"
+          type="text"
+          [(ngModel)]="newTour.discountCode"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label>Info</label>
         <textarea
           class="form-control"
           name=""

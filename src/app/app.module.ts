@@ -12,6 +12,10 @@ import { TourService } from './services/tour.service';
 import { MyCustomModalComponent } from './components/my-custom-modal/my-custom-modal.component';
 import { TourCardComponent } from './components/tour-card/tour-card.component';
 import { SummaryPipe } from './pipes/summary.pipe';
+import { InputFormatDirective } from './directives/input-format.directive';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +27,31 @@ import { SummaryPipe } from './pipes/summary.pipe';
     ButtonComponent,
     MyCustomModalComponent,
     TourCardComponent,
-    SummaryPipe
+    SummaryPipe,
+    InputFormatDirective,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, RouterModule.forRoot([
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'tours',
+        component: TourListComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
