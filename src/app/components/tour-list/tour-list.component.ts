@@ -18,9 +18,7 @@ export class TourListComponent implements OnInit {
     createdAt: null
  }
 
-  constructor(private tourService: TourService) {
-   
-  }
+  constructor(private tourService: TourService) {}
 
   ngOnInit(): void {
     this.tours = this.tourService.getAllTour();

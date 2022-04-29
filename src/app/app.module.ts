@@ -16,6 +16,7 @@ import { SummaryPipe } from './pipes/summary.pipe';
 import { InputFormatDirective } from './directives/input-format.directive';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { TourDetailComponent } from './components/tour-detail/tour-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     SummaryPipe,
     InputFormatDirective,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TourDetailComponent
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot([
@@ -46,6 +48,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
       {
         path: 'tours',
         component: TourListComponent
+      },
+      {
+        path: 'tours/:id',
+        component: TourDetailComponent
       },
       {
         path: '**',

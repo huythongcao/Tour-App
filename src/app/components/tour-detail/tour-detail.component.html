@@ -1,0 +1,22 @@
+<!-- <a routerLink="/tours/rec6d6T3q5EBIdCfD" class="d-block">
+  Best of Ireland in 14 Days Tour
+</a>
+<a routerLink="/tours/recIwxrvU9HfJR3B4" class="d-block">
+  Best of Salzburg & Vienna in 8 Days Tour
+</a>
+<a routerLink="/tours/recJLWcHScdUtI3ny" class="d-block">
+  Best of Rome in 7 Days Tour
+</a> -->
+
+<a routerLink="../" [queryParams]="{ orderBy: 'date', order: 'ascending' }">
+  Back to Tours
+</a>
+<br />
+<button
+  class="btn btn-link"
+  (click)="onBackBtnClick()"
+>
+  Back to Tours (programmatic routing)
+</button>
+
+<p>{{ tour | json }}</p>
