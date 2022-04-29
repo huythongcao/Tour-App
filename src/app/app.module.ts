@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { PreloadingStrategy, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -38,26 +38,28 @@ import { Tab2Component } from './components/settings/tab2/tab2.component';
     TourDetailComponent,
     SettingsComponent,
     Tab1Component,
-    Tab2Component
+    Tab2Component,
   ],
   imports: [
-    BrowserModule, FormsModule, RouterModule.forRoot([
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot([
       {
         path: '',
         redirectTo: '/home',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'tours',
-        component: TourListComponent
+        component: TourListComponent,
       },
       {
         path: 'tours/:id',
-        component: TourDetailComponent
+        component: TourDetailComponent,
       },
       {
         path: 'settings',
@@ -65,27 +67,33 @@ import { Tab2Component } from './components/settings/tab2/tab2.component';
         children: [
           {
             path: 'tab1',
-            component: Tab1Component
+            component: Tab1Component,
           },
           {
             path: 'tab2',
-            component: Tab2Component
+            component: Tab2Component,
           },
           {
             path: '',
             redirectTo: 'tab1',
-            pathMatch: 'full'
-          }
-        ]
+            pathMatch: 'full',
+          },
+        ],
+      },
+      {
+        path: 'admin',
+        loadChildren: () =>
+          import('./modules/admin/admin.module').then((m) => m.AdminModule),
       },
       {
         path: '**',
-        component: NotFoundComponent
-      }
-    ])
+        component: NotFoundComponent,
+      },
+    ], {
+      preloadingStrategy: PreloadAllModules
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
