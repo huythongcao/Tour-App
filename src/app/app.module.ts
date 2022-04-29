@@ -17,6 +17,9 @@ import { InputFormatDirective } from './directives/input-format.directive';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TourDetailComponent } from './components/tour-detail/tour-detail.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { Tab1Component } from './components/settings/tab1/tab1.component';
+import { Tab2Component } from './components/settings/tab2/tab2.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
     InputFormatDirective,
     HomeComponent,
     NotFoundComponent,
-    TourDetailComponent
+    TourDetailComponent,
+    SettingsComponent,
+    Tab1Component,
+    Tab2Component
   ],
   imports: [
     BrowserModule, FormsModule, RouterModule.forRoot([
@@ -52,6 +58,25 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
       {
         path: 'tours/:id',
         component: TourDetailComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        children: [
+          {
+            path: 'tab1',
+            component: Tab1Component
+          },
+          {
+            path: 'tab2',
+            component: Tab2Component
+          },
+          {
+            path: '',
+            redirectTo: 'tab1',
+            pathMatch: 'full'
+          }
+        ]
       },
       {
         path: '**',
