@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PreloadingStrategy, RouterModule, PreloadAllModules } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -20,6 +20,7 @@ import { TourDetailComponent } from './components/tour-detail/tour-detail.compon
 import { SettingsComponent } from './components/settings/settings.component';
 import { Tab1Component } from './components/settings/tab1/tab1.component';
 import { Tab2Component } from './components/settings/tab2/tab2.component';
+import { NamedRouterOutletComponent } from './components/named-router-outlet/named-router-outlet.component';
 
 @NgModule({
   declarations: [
@@ -39,59 +40,68 @@ import { Tab2Component } from './components/settings/tab2/tab2.component';
     SettingsComponent,
     Tab1Component,
     Tab2Component,
+    NamedRouterOutletComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
+    RouterModule.forRoot(
+      [
+        {
+          path: '',
+          redirectTo: '/home',
+          pathMatch: 'full',
+        },
+        {
+          path: 'home',
+          component: HomeComponent,
+        },
+        {
+          path: 'tours',
+          component: TourListComponent,
+        },
+        {
+          path: 'tours/:id',
+          component: TourDetailComponent,
+        },
+        {
+          path: 'settings',
+          component: SettingsComponent,
+          children: [
+            {
+              path: 'tab1',
+              component: Tab1Component,
+            },
+            {
+              path: 'tab2',
+              component: Tab2Component,
+            },
+            {
+              path: '',
+              redirectTo: 'tab1',
+              pathMatch: 'full',
+            },
+          ],
+        },
+        {
+          path: 'admin',
+          loadChildren: () =>
+            import('./modules/admin/admin.module').then((module) => module.AdminModule),
+        },
+        {
+          path: 'named-router-outlet',
+          component: NamedRouterOutletComponent,
+          outlet: 'secondOutlet',
+        },
+        {
+          path: '**',
+          component: NotFoundComponent,
+        },
+      ],
       {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'home',
-        component: HomeComponent,
-      },
-      {
-        path: 'tours',
-        component: TourListComponent,
-      },
-      {
-        path: 'tours/:id',
-        component: TourDetailComponent,
-      },
-      {
-        path: 'settings',
-        component: SettingsComponent,
-        children: [
-          {
-            path: 'tab1',
-            component: Tab1Component,
-          },
-          {
-            path: 'tab2',
-            component: Tab2Component,
-          },
-          {
-            path: '',
-            redirectTo: 'tab1',
-            pathMatch: 'full',
-          },
-        ],
-      },
-      {
-        path: 'admin',
-        loadChildren: () =>
-          import('./modules/admin/admin.module').then((m) => m.AdminModule),
-      },
-      {
-        path: '**',
-        component: NotFoundComponent,
-      },
-    ], {
-      preloadingStrategy: PreloadAllModules
-    }),
+        preloadingStrategy: PreloadAllModules,
+      }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,11 +11,6 @@ import { RouterModule } from '@angular/router';
     CommonModule, RouterModule.forChild([
       {
         path: "",
-        redirectTo: "dashboard",
-        pathMatch: "full"
-      },
-      {
-        path: "dashboard",
         component:  DashboardComponent
       }
     ])

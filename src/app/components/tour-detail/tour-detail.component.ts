@@ -17,7 +17,7 @@ export class TourDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('Snpashot: ' + this.activatedRoute.snapshot.params.id);
+    console.log('Snapshot: ' + this.activatedRoute.snapshot.params.id);
     this.activatedRoute.params.subscribe((p) => {
       console.log('Observable: ' + p.id);
 
